@@ -61,7 +61,7 @@ npm run build
 
 ## 🧩 Customize (Quick Guide)
 
-Typical things you’ll want to update:
+Typical things you'll want to update:
 
 - **Your name + hero section text**
 - **Projects list**
