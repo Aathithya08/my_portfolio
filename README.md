@@ -83,7 +83,3 @@ Add these topics to improve GitHub search visibility:
 `portfolio` `developer-portfolio` `portfolio-website` `portfolio-template` `3d-portfolio` `react` `typescript` `threejs` `webgl` `gsap` `frontend` `vite`
 
 ---
-
-## 🪪 License
-
-This project is open source and available under the **MIT License**. See [LICENSE](LICENSE).
