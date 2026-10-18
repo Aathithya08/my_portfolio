@@ -1,85 +1,43 @@
+# Aathithya Kanapathy — Portfolio
 
+A React, TypeScript, and Vite portfolio with a dark cyan/violet visual system inspired by [Thamilnilavan's portfolio](https://github.com/Thamilnilavan/my_portfolio).
 
-## ✨ Highlights
+## Run
 
-- **3D / WebGL experience** powered by **Three.js**
-- Smooth animations with **GSAP**
-- Modern **React + TypeScript** codebase
-- Fast, responsive UI (desktop + mobile)
-- Designed for developers, engineers, programmers, and creators
-
----
-
-## 🧰 Tech Stack
-
-- **React**
-- **TypeScript**
-- **Three.js / WebGL**
-- **GSAP**
-- **HTML / CSS / JavaScript**
-
----
-
-## 🚀 Getting Started
-
-### 1) Clone
-
-```bash
-git clone https://github.com/Aathithya08/portfolio-website.git
-cd portfolio-website
-```
-
-### 2) Install
-
-```bash
+```sh
 npm install
-```
-
-### 3) Run locally
-
-```bash
 npm run dev
 ```
 
-### 4) Build
+## Build
 
-```bash
+```sh
 npm run build
+npm run preview
 ```
 
----
+## Pages
 
-## 🧩 Customize (Quick Guide)
+- `/`: profile, skills, services, featured project, education, and contact.
+- `/myworks`: dedicated project view.
+- `/play`: interactive chess room with the existing chat integration.
 
-Typical things you'll want to update:
+Quick access supports Ctrl/Cmd+K and searches sections, pages, and the CV. Skills and gallery items can be filtered. Gallery photos open in a keyboard-accessible dialog, and the showcase offers desktop/mobile layout previews. The contact form prepares an email draft for the visitor to review and send in their email app.
 
-- **Your name + hero section text**
-- **Projects list**
-- **Social links** (GitHub, LinkedIn, email)
-- **SEO meta title/description**
+## Customize
 
----
+- `src/config.ts`: profile, skills, education, project information, and contact links.
+- `src/components/Portfolio.tsx`: page structure, hero copy, services, and project illustration.
+- `src/App.css` and `src/index.css`: visual system and responsive layouts.
+- `public/cv/Aathithya.pdf`: downloadable CV.
+- `public/images/`: existing profile and workspace illustrations.
 
-## ⭐ Support
+The Mini CNC card uses a labelled concept illustration because the original project's configured photo is missing. Replace it with a real project image when available.
 
-If you found this useful:
+Email and telephone links work without a backend. The existing chess chat requires `GROQ_API_KEY` on the hosting server and the `/api/chat` serverless function; Vite alone does not run that API. Never put the key in client-side code.
 
-- Please **star** the repository (it helps a lot)
-- Share it with a friend who needs a portfolio template
-- Sponsor via the **Sponsor** button on GitHub (if available in your region)
+See [REDESIGN_PLAN.md](REDESIGN_PLAN.md) for the implementation plan and scope. The old 3D components remain in the source but are no longer loaded by the redesigned routes.
 
----
+## Validation
 
-## 🤝 Connect
-
-- LinkedIn: https://www.linkedin.com/in/aathithya-kanapathy
-
----
-
-## 🏷️ Recommended GitHub Topics (add in repo settings)
-
-Add these topics to improve GitHub search visibility:
-
-`portfolio` `developer-portfolio` `portfolio-website` `portfolio-template` `3d-portfolio` `react` `typescript` `threejs` `webgl` `gsap` `frontend` `vite`
-
----
+Production TypeScript/build and lint on the redesigned entry/components pass. Home and project render checks cover content, local assets, and section links. Local HTTP checks cover all three routes, the CV, and portrait. Browser visual and interaction QA is still pending because this session has no connected browser.

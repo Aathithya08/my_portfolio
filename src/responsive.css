@@ -1,0 +1,102 @@
+/* Loaded after the page styles so responsive rules have a predictable cascade. */
+.hero, .about-grid, .project-feature, .contact-grid, .showcase-grid,
+.services-grid, .gallery-grid, .footer-main { min-width: 0; }
+.hero>*, .about-grid>*, .project-feature>*, .contact-grid>*,
+.showcase-grid>*, .services-grid>*, .footer-main>*, .journey-content { min-width: 0; }
+.hero h1, .section-heading :is(h1, h2), .project-copy h3,
+.journey-content h3, .contact-message h3 { overflow-wrap: anywhere; }
+.nav-inner { gap: 18px; }
+.desktop-nav { gap: 18px; }
+.nav-contact, .quick-nav-trigger, .menu-toggle { flex-shrink: 0; }
+.nav-contact { white-space: nowrap; }
+.quick-nav-trigger>span { display: none; }
+.button svg, .text-link svg, .method-icon { flex-shrink: 0; }
+.skill-pill { max-width: 100%; }
+.skill-pill>span:last-child { overflow-wrap: anywhere; }
+.preview-portrait { display: grid; }
+.preview-portrait img { aspect-ratio: 1; height: auto; }
+.quick-search input { min-width: 0; }
+.quick-dialog, .gallery-dialog { overscroll-behavior: contain; }
+.technical-skills .filter-pills button, .skill-notes summary,
+.dialog-heading button, .gallery-dialog-footer button,
+.showcase-toolbar button, .quick-nav-trigger, .menu-toggle,
+.footer-social>a, .copy-button { min-width: 44px; min-height: 44px; }
+.quick-results button { min-height: 52px; }
+
+@media (max-width: 1000px) and (min-width: 601px) {
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery-tile>img { height: 330px; }
+}
+@media (max-width: 960px) {
+  .nav-inner { gap: 12px; }
+  .desktop-nav { display: none; }
+  .quick-nav-trigger { margin-left: auto; }
+  .nav-contact { margin-left: 0; }
+  .menu-toggle { display: flex; margin-left: 0; }
+  .mobile-nav { overscroll-behavior: contain; max-height: calc(100svh - 76px); }
+  .mobile-nav a { min-height: 48px; }
+}
+@media (max-width: 800px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 35px; padding-top: 120px; padding-bottom: 95px; }
+  .hero-copy { max-width: 590px; }
+  .hero-visual { width: min(340px, calc(100% - 30px)); margin: 0 auto 15px; padding-bottom: 38px; }
+  .portrait-caption { bottom: 0; }
+  .hero-social p { flex-basis: auto; }
+  .hero-social>span { display: block; }
+  .hero-bottom { justify-content: center; }
+  .hero-bottom>span { display: none; }
+  .contact-grid:has(.contact-form) { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .contact-message>p { max-width: 100%; }
+  .contact-form .form-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .showcase-grid { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .showcase-preview { max-width: 590px; width: 100%; margin-inline: auto; }
+}
+@media (max-width: 700px) {
+  .nav-inner { gap: 9px; }
+  .quick-nav-trigger kbd { display: none; }
+  .quick-nav-trigger { padding: 10px; }
+  .nav-contact { min-height: 44px; }
+  .hero h1 { font-size: clamp(44px, 11vw, 70px); }
+  .hero-social>a { width: 44px; height: 44px; }
+  .hero-social { gap: 9px; }
+  .hero-social p { flex-basis: 100%; font-size: 11px; }
+  .hero-social>span { display: none; }
+  .hero-role { min-height: 56px; }
+  .mobile-nav { max-height: calc(100svh - 70px); }
+  .contact-form input, .contact-form textarea, .quick-search input { font-size: 16px; }
+  .footer-main nav a { min-height: 44px; display: inline-flex; align-items: center; }
+  .gallery-dialog-inner>img { max-height: 55svh; }
+  .section-title-row { flex-wrap: wrap; gap: 0; margin-bottom: 26px; }
+  .section-title-row .section-heading { margin-bottom: 8px; }
+  .section-title-row>.text-link { margin-top: 0; min-height: 44px; font-size: 12px; }
+}
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: minmax(0, 1fr); }
+  .gallery-tile>img { height: clamp(300px, 100vw, 420px); }
+  .contact-form .form-pair { grid-template-columns: minmax(0, 1fr); }
+  .showcase-toolbar>div { flex-shrink: 0; }
+  .showcase-toolbar>span { line-height: 1.7; }
+}
+@media (max-width: 400px) {
+  .nav-contact { display: none; }
+  .menu-toggle { margin-left: 0; }
+  .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .hero-actions .button { padding-inline: 10px; font-size: 11px; gap: 7px; }
+  .hero-actions .cv-link { grid-column: 1 / -1; justify-content: center; min-height: 44px; }
+  .portrait-caption { padding: 11px; gap: 9px; }
+  .caption-icon { padding: 8px; }
+  .portrait-caption strong { font-size: 11px; }
+  .portrait-caption div>span { font-size: 9px; }
+}
+
+/* Chess board and side panels need a wrap before the old 1100px breakpoint. */
+@media (min-width: 1101px) and (max-width: 1279px) {
+  .play-page .chess-container { flex-wrap: wrap; }
+  .play-page .chess-board-section { order: 0; }
+  .play-page .right-panel { order: 1; flex: 0 0 200px; }
+  .play-page .chat-panel { order: 2; flex: 0 0 100%; max-width: 760px; height: 360px; }
+}
+@media (max-width: 700px) {
+  .play-page .chat-input { font-size: 16px; }
+  .play-page .control-btn, .play-page .chat-send-btn { min-height: 44px; }
+}

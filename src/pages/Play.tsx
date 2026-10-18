@@ -324,6 +324,11 @@ const Play = () => {
         </Link>
       </div>
 
+      <div className="chess-room-intro">
+        <span>TAKE A BREAK</span>
+        <h1>The chess <em>room.</em></h1>
+        <p>A little strategy. A little conversation. Make your first move.</p>
+      </div>
       <div className="chess-container">
         {/* Chat Panel - Left Side */}
         <div className="chat-panel">
@@ -392,7 +397,10 @@ const Play = () => {
                   const isCheck = game.isCheck() && piece?.type === 'k' && piece?.color === game.turn();
 
                   return (
-                    <div
+                    <button
+                      type="button"
+                      aria-label={`${square}${piece ? ` ${piece.color === 'w' ? 'white' : 'black'} ${piece.type}` : ' empty'}${isPossibleMove ? ', possible move' : ''}`}
+                      aria-pressed={isSelected}
                       key={square}
                       className={`chess-square ${isLight ? 'light' : 'dark'} 
                         ${isSelected ? 'selected' : ''} 
@@ -416,7 +424,7 @@ const Play = () => {
                       {isPossibleMove && (
                         <div className={`move-indicator ${piece ? 'capture' : ''}`} />
                       )}
-                    </div>
+                    </button>
                   );
                 })
               ))}

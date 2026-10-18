@@ -767,6 +767,33 @@ body:has(.play-page) {
   box-shadow: 0 0 20px rgba(194, 164, 255, 0.4);
 }
 
+/* Shared cyan/violet portfolio design. */
+.play-page { z-index: 1; background: radial-gradient(ellipse at 80% 0, #24153d55, transparent 60%); padding: 32px 40px 60px; }
+.play-page::before, .play-page::after { display: none; }
+.play-header { max-width: 1200px; }
+.play-header .back-button { border-color: #67e8f940; border-radius: 10px; padding: 11px 17px; font-size: 12px; }
+.chess-room-intro { width: 100%; max-width: 1200px; padding: 25px 0 35px; }
+.chess-room-intro>span { font: 10px monospace; letter-spacing: 2px; color: #67e8f9; }
+.chess-room-intro h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 600; letter-spacing: -2px; margin: 15px 0; }
+.chess-room-intro em { font-style: normal; color: #b4a0f7; }
+.chess-room-intro p { font-size: 13px; color: #a1a1b3; line-height: 1.8; margin: 0; }
+.chess-container { max-width: 1200px; justify-content: center; gap: 20px; }
+.chess-board-wrapper { background: #0e101d; border-color: #ffffff1a; border-radius: 14px; }
+.chess-square { border: 0; border-radius: 0; padding: 0; min-width: 0; min-height: 0; }
+.chess-square:focus-visible { outline-offset: -4px; z-index: 2; }
+.chess-square.light { background: #c1c8de; }.chess-square.dark { background: #535c7d; }
+.chess-square.selected { background: #457b9b !important; }.chess-square.last-move { background: #6c679a !important; }
+.chess-square.light .coord-rank, .chess-square.light .coord-file { color: #414965; }
+.chess-square.dark .coord-rank, .chess-square.dark .coord-file { color: #d7ddf5; }
+.play-page .player-bar, .play-page .game-status, .play-page .move-history, .play-page .control-btn, .play-page .chat-panel { background: #0e101bc9; border-color: #ffffff16; border-radius: 12px; }
+.play-page .player-info { min-width: 0; }.play-page .player-bar .captured-pieces { min-width: 0; }
+.play-page .chat-panel { min-width: 0; }.play-page .chat-header, .play-page .move-history-header { background: #a78bfa09; border-color: #ffffff12; }
+.play-page .chat-input { min-width: 0; }.play-page .chat-input:focus-visible { outline: 2px solid #67e8f9; outline-offset: 1px; }
+.play-page .chat-send-btn { flex-shrink: 0; }.play-page .control-btn:hover { background: #a78bfa16; border-color: #67e8f955; }
+@media (max-width: 1100px) { .play-page .chess-board-section { order: 0; }.play-page .right-panel { order: 1; }.play-page .chat-panel { order: 2; flex-basis: 100%; max-width: 740px; }.play-page .chess-container { gap: 20px; } }
+@media (max-width: 800px) { .play-page .right-panel { width: 100%; max-width: 540px; }.play-page .game-status, .play-page .move-history, .play-page .game-controls { width: 100%; }.play-page .chat-panel { max-width: 540px; }.play-page .chess-board { width: min(520px, calc(100vw - 64px)); height: min(520px, calc(100vw - 64px)); } }
+@media (max-width: 600px) { .play-page { padding: 22px 20px 40px; }.chess-room-intro { padding-bottom: 26px; }.play-page .chess-board { width: calc(100vw - 56px); height: calc(100vw - 56px); max-width: 520px; max-height: 520px; }.play-page .chess-board-section { max-width: 100%; }.play-page .chat-panel { min-width: 0; width: 100%; }.play-page .player-bar { padding: 8px; gap: 6px; } }
+
 /* Responsive for chat */
 @media only screen and (max-width: 1100px) {
   .chess-container {

@@ -1,0 +1,71 @@
+.ambient-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #050508;
+  contain: strict;
+}
+.ambient-orb { position: absolute; border-radius: 50%; will-change: transform; }
+.ambient-violet {
+  width: 75vmax; height: 75vmax; right: -25%; top: -40%;
+  background: radial-gradient(circle, #7c3aed30, transparent 68%);
+  animation: ambient-drift 22s ease-in-out infinite alternate;
+}
+.ambient-cyan {
+  width: 65vmax; height: 65vmax; left: -30%; top: 10%;
+  background: radial-gradient(circle, #00d4ff20, transparent 68%);
+  animation: ambient-drift 19s -9s ease-in-out infinite alternate-reverse;
+}
+.ambient-gold {
+  width: 50vmax; height: 50vmax; right: 0; bottom: -35%;
+  background: radial-gradient(circle, #c4a45314, transparent 68%);
+  animation: ambient-drift 26s -15s ease-in-out infinite alternate;
+}
+.ambient-grid {
+  position: absolute; inset: 0; opacity: .28;
+  background-image: linear-gradient(#9cadce10 1px, transparent 1px), linear-gradient(90deg, #9cadce10 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at center, #000 10%, transparent 75%);
+}
+.ambient-particles { position: absolute; inset: 0; }
+.ambient-particles i {
+  position: absolute; width: 2px; height: 2px; border-radius: 50%;
+  background: #9ceafa; box-shadow: 0 0 8px #67e8f950;
+  animation: ambient-particle var(--duration) var(--delay) ease-in-out infinite;
+}
+.ambient-particles i:nth-child(3n) { background: #b9a0f3; width: 3px; height: 3px; }
+.ambient-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse, transparent 20%, #05050870); }
+.ambient-background[data-paused="true"] * { animation-play-state: paused; }
+.pointer-effects { position: fixed; inset: 0; z-index: 90; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.pointer-effects[data-visible="true"] { opacity: 1; }
+.pointer-effects>div { position: fixed; top: 0; left: 0; pointer-events: none; will-change: transform; }
+.pointer-glow {
+  width: 700px; height: 700px; z-index: 30;
+  transform: translate3d(calc(var(--glow-x) - 50%), calc(var(--glow-y) - 50%), 0);
+  background: radial-gradient(circle, #00d4ff16, #7c3aed0c 34%, transparent 68%);
+  border-radius: 50%;
+}
+.pointer-ring {
+  width: 36px; height: 36px; border: 1px solid #b099f1cc; border-radius: 50%; z-index: 100;
+  transform: translate3d(calc(var(--ring-x) - 50%), calc(var(--ring-y) - 50%), 0) scale(1);
+  transition: width .2s, height .2s, border-color .2s, background-color .2s;
+}
+.pointer-dot {
+  width: 6px; height: 6px; background: #9af0ff; border-radius: 50%; z-index: 101;
+  transform: translate3d(calc(var(--pointer-x) - 50%), calc(var(--pointer-y) - 50%), 0);
+  box-shadow: 0 0 12px #67e8f950;
+}
+.pointer-effects[data-interactive="true"] .pointer-ring { width: 54px; height: 54px; border-color: #67e8f988; background: #67e8f90c; }
+@keyframes ambient-drift { from { transform: translate3d(-3%, -2%, 0) scale(.95); } to { transform: translate3d(8%, 6%, 0) scale(1.15); } }
+@keyframes ambient-particle { 0%, 100% { opacity: .12; transform: translate3d(0, 0, 0); } 50% { opacity: .6; transform: translate3d(var(--drift), -65px, 0); } }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .pointer-effects-active, .pointer-effects-active * { cursor: none !important; }
+  .pointer-effects-active input, .pointer-effects-active textarea { cursor: text !important; }
+  .pointer-effects-active dialog, .pointer-effects-active dialog * { cursor: auto !important; }
+  .pointer-effects-active dialog button, .pointer-effects-active dialog a { cursor: pointer !important; }
+  .pointer-effects-active dialog input, .pointer-effects-active dialog textarea { cursor: text !important; }
+}
+@media (hover: none), (pointer: coarse) { .pointer-effects, .ambient-particles { display: none; }.ambient-orb { animation: none; will-change: auto; } }
+@media (prefers-reduced-motion: reduce) { .pointer-effects, .ambient-particles { display: none; }.ambient-orb { animation: none; will-change: auto; } }
